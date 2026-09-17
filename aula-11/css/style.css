@@ -1,0 +1,210 @@
+/* =========================================================
+   TOKENS — identidade própria desta aula: tema "terminal/dev tool",
+   diferente do TechNova (Aulas 09/10) para mostrar variação de
+   estilo visual, em CSS puro (sem Bootstrap/Tailwind).
+   ========================================================= */
+:root {
+  --bg: #0b0f14;
+  --bg-panel: #10161d;
+  --bg-panel-2: #161d26;
+  --border: #232c38;
+  --text: #e2e8f0;
+  --text-muted: #8b98a9;
+  --accent: #4ade80;
+  --accent-2: #22d3ee;
+  --danger: #fb7185;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+code, pre, .mono {
+  font-family: "Fira Code", "Consolas", monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Barra de progresso de leitura */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  z-index: 100;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.layout {
+  display: flex;
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 2.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.brand__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.sidebar__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sidebar__nav a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sidebar__nav a:hover {
+  color: var(--text);
+  background-color: var(--bg-panel);
+}
+
+.sidebar__nav a.is-active {
+  color: var(--accent);
+  background-color: rgba(74, 222, 128, 0.08);
+  border-left-color: var(--accent);
+}
+
+.sidebar__back {
+  margin-top: auto;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-top: 1.5rem;
+}
+
+.sidebar__back:hover {
+  color: var(--text);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 0 2rem 6rem;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  padding: 4.5rem 0 3rem;
+}
+
+.hero__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background-color: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero__title span {
+  color: var(--accent);
+}
+
+.hero__subtitle {
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 2rem;
+}
+
+.hero__subtitle code {
+  background-color: var(--bg-panel);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--accent-2);
+}
+
+.hero__code {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  min-height: 2.7rem;
+  white-space: pre-wrap;
+}
+
+.hero__code .cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1rem;
+  background-color: var(--accent);
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

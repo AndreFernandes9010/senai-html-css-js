@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Playground — Aula 11</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CodeMirror: editor de código de verdade nos exemplos (com
+       destaque de sintaxe), em vez de um <textarea> puro. Se o CDN
+       falhar por algum motivo, o <textarea> continua funcionando
+       normalmente — é só a "casca" visual que não aparece. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress" id="progressBar"></div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR — sumário fixo, com o item ativo destacado conforme
+         a rolagem (mesma técnica de IntersectionObserver da Aula 10). -->
+    <aside class="sidebar">
+      <a href="#topo" class="brand">
+        <span class="brand__dot"></span> JS Playground
+      </a>
+      <p class="sidebar__label">Conceitos</p>
+      <nav class="sidebar__nav" id="sidebarNav">
+        <a href="#variaveis" data-toc-link>Variáveis e Tipos</a>
+        <a href="#funcoes" data-toc-link>Funções</a>
+        <a href="#arrays" data-toc-link>Arrays</a>
+        <a href="#objetos" data-toc-link>Objetos</a>
+        <a href="#loops" data-toc-link>Condicionais e Loops</a>
+        <a href="#dom" data-toc-link>DOM e Eventos</a>
+      </nav>
+      <a class="sidebar__back" href="../">← Voltar ao índice do curso</a>
+    </aside>
+
+    <main class="content" id="topo">
+
+      <!-- HERO -->
+      <header class="hero">
+        <span class="hero__badge">Aula 11 · Introdução ao JavaScript</span>
+        <h1 class="hero__title">Aprenda JavaScript <span>escrevendo</span> JavaScript</h1>
+        <p class="hero__subtitle">
+          Cada bloco abaixo tem um editor de código real. Edite, clique em
+          <strong>Executar</strong> e veja o resultado — o código roda
+          isolado num <code>&lt;iframe sandbox&gt;</code>, nunca direto
+          na página.
+        </p>
+        <pre class="hero__code" id="heroTyping"></pre>
+      </header>
+
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
