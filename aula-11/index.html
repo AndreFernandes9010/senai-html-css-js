@@ -59,6 +59,237 @@
         <pre class="hero__code" id="heroTyping"></pre>
       </header>
 
+      <section id="variaveis" class="panel" data-reveal>
+        <span class="panel__index">01</span>
+        <h2 class="panel__title">Variáveis e Tipos</h2>
+        <p class="panel__desc">
+          <code>let</code> declara uma variável que pode mudar; <code>const</code>,
+          uma que não muda de referência. <code>typeof</code> revela o tipo
+          em tempo de execução — JavaScript é tipado dinamicamente.
+        </p>
+        <div class="editor" data-panel>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>let nome = "Ana";
+const idade = 22;
+let ativo = true;
+
+console.log(typeof nome);
+console.log(typeof idade);
+console.log(`Usuário: ${nome}, ${idade} anos`);</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>console</span></div>
+            <div class="output" data-output>
+              <p class="output__empty">Clique em Executar para ver o resultado.</p>
+            </div>
+            <iframe class="sandbox-frame" data-sandbox-frame hidden sandbox="allow-scripts" title="Ambiente isolado de execução"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="funcoes" class="panel" data-reveal>
+        <span class="panel__index">02</span>
+        <h2 class="panel__title">Funções</h2>
+        <p class="panel__desc">
+          Funções são blocos de código reutilizáveis. Podem ser declaradas
+          com <code>function</code>, como arrow functions (<code>=&gt;</code>)
+          e receber valores padrão para parâmetros não informados.
+        </p>
+        <div class="editor" data-panel>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>function somar(a, b) {
+  return a + b;
+}
+
+const multiplicar = (a, b) => a * b;
+
+function saudacao(nome = "visitante") {
+  return `Olá, ${nome}!`;
+}
+
+console.log(somar(2, 3));
+console.log(multiplicar(4, 5));
+console.log(saudacao());
+console.log(saudacao("Rafael"));</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>console</span></div>
+            <div class="output" data-output>
+              <p class="output__empty">Clique em Executar para ver o resultado.</p>
+            </div>
+            <iframe class="sandbox-frame" data-sandbox-frame hidden sandbox="allow-scripts" title="Ambiente isolado de execução"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="arrays" class="panel" data-reveal>
+        <span class="panel__index">03</span>
+        <h2 class="panel__title">Arrays</h2>
+        <p class="panel__desc">
+          <code>map</code>, <code>filter</code> e <code>reduce</code> são os
+          três métodos de array mais usados no dia a dia: transformar,
+          selecionar e acumular itens sem escrever loops manuais.
+        </p>
+        <div class="editor" data-panel>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>const numeros = [4, 8, 15, 16, 23, 42];
+
+const dobrados = numeros.map(n => n * 2);
+const pares = numeros.filter(n => n % 2 === 0);
+const soma = numeros.reduce((total, n) => total + n, 0);
+
+console.log("Dobrados:", dobrados);
+console.log("Pares:", pares);
+console.log("Soma:", soma);</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>console</span></div>
+            <div class="output" data-output>
+              <p class="output__empty">Clique em Executar para ver o resultado.</p>
+            </div>
+            <iframe class="sandbox-frame" data-sandbox-frame hidden sandbox="allow-scripts" title="Ambiente isolado de execução"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="objetos" class="panel" data-reveal>
+        <span class="panel__index">04</span>
+        <h2 class="panel__title">Objetos</h2>
+        <p class="panel__desc">
+          Objetos guardam dados como pares chave/valor. Destructuring extrai
+          campos direto em variáveis, e o spread (<code>...</code>) cria uma
+          cópia com alterações, sem mutar o objeto original.
+        </p>
+        <div class="editor" data-panel>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>const usuario = {
+  nome: "Camila",
+  cargo: "Desenvolvedora Back-end",
+  skills: ["Node.js", "PostgreSQL"],
+};
+
+const { nome, cargo } = usuario;
+const atualizado = { ...usuario, cargo: "Tech Lead" };
+
+console.log(nome, "-", cargo);
+console.log(atualizado);</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>console</span></div>
+            <div class="output" data-output>
+              <p class="output__empty">Clique em Executar para ver o resultado.</p>
+            </div>
+            <iframe class="sandbox-frame" data-sandbox-frame hidden sandbox="allow-scripts" title="Ambiente isolado de execução"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="loops" class="panel" data-reveal>
+        <span class="panel__index">05</span>
+        <h2 class="panel__title">Condicionais e Loops</h2>
+        <p class="panel__desc">
+          <code>if/else</code> decide qual caminho seguir; <code>for</code>
+          repete um bloco um número definido de vezes — a base de qualquer
+          lógica de programa.
+        </p>
+        <div class="editor" data-panel>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>const nota = 7.5;
+
+if (nota >= 6) {
+  console.log("Aprovado");
+} else {
+  console.log("Reprovado");
+}
+
+for (let i = 1; i <= 5; i++) {
+  console.log("Tabuada de 5:", i * 5);
+}</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>console</span></div>
+            <div class="output" data-output>
+              <p class="output__empty">Clique em Executar para ver o resultado.</p>
+            </div>
+            <iframe class="sandbox-frame" data-sandbox-frame hidden sandbox="allow-scripts" title="Ambiente isolado de execução"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="dom" class="panel" data-reveal>
+        <span class="panel__index">06</span>
+        <h2 class="panel__title">DOM e Eventos</h2>
+        <p class="panel__desc">
+          O DOM é a representação da página em memória. <code>addEventListener</code>
+          reage a interações do usuário — aqui, o resultado aparece de verdade
+          ao lado, não só no console.
+        </p>
+        <div class="editor" data-panel data-panel-preview>
+          <div class="editor__pane">
+            <div class="editor__bar">
+              <span>editor.js</span>
+              <div class="editor__actions">
+                <button type="button" data-copy title="Copiar código"><i>⧉</i></button>
+                <button type="button" data-reset title="Restaurar original"><i>↺</i></button>
+                <button type="button" class="run-btn" data-run>▶ Executar</button>
+              </div>
+            </div>
+            <textarea data-code>const botao = document.getElementById("btn");
+const contador = document.getElementById("contador");
+let cliques = 0;
+
+botao.addEventListener("click", () => {
+  cliques++;
+  contador.textContent = `${cliques} clique(s)`;
+});</textarea>
+          </div>
+          <div class="editor__pane">
+            <div class="editor__bar"><span>preview</span></div>
+            <iframe class="preview-frame" data-preview-frame sandbox="allow-scripts" title="Preview do DOM"></iframe>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
