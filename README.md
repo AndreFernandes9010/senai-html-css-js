@@ -13,3 +13,4 @@ com seu próprio conjunto de commits.
 | [aula-05](./aula-05) | Aula 05 | Componente de FAQ / accordion |
 | [aula-06](./aula-06) | Aula 06 | Referência de Flexbox e Media Queries |
 | [aula-07](./aula-07) | Aula 07 | Exercício Flex e Media (layout responsivo) |
+| [aula-08](./aula-08) | Aula 08 | Bootstrap: grid, botões, navbar, formulário, card, grid responsivo e home page |
