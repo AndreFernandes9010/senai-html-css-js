@@ -16,3 +16,72 @@ body {
   background-color: #f4f6f8;
   line-height: 1.5;
 }
+
+/* =========================================================
+   HEADER
+   Flex só para alinhar marca e navegação lado a lado dentro
+   do próprio header. O header em si já ocupa 100% da largura
+   por ser um elemento de bloco normal — não precisa de flex
+   no nível do body para isso.
+   ========================================================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* =========================================================
+   CONTEUDO + SIDEBAR (versão desktop)
+   display: flex organiza os dois filhos em linha (row, que é
+   o valor padrão de flex-direction). O conteudo recebe o
+   triplo do espaço flexível da sidebar (flex: 3 vs flex: 1),
+   reproduzindo a proporção ~75% / ~25% da referência.
+   ========================================================= */
+.conteudo-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.conteudo {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.sidebar__lista {
+  list-style: none;
+}
+
+/* =========================================================
+   FOOTER (versão desktop)
+   Os 3 blocos dividem o espaço igualmente (flex: 1 em todos).
+   flex-wrap: wrap é o que permite que, mais tarde, a versão
+   tablet "quebre" a linha e empilhe os blocos em 2 linhas sem
+   precisar de outro container.
+   ========================================================= */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+.parte {
+  flex: 1;
+  min-width: 0; /* evita que o texto force o item a estourar o flex-basis */
+}
