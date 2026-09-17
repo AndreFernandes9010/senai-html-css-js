@@ -20,3 +20,4 @@ com seu próprio conjunto de commits.
 | [aula-12](./aula-12) | Aula 12 | 10 exercícios de JS como mini-ferramentas reativas: paleta de comando (Ctrl+K), gráficos, progresso gamificado e confete |
 | [aula-13](./aula-13) | Aula 13 | Desafios: verificador de palíndromo (visualização de dois ponteiros) e de senha segura (checklist reativo + gerador) |
 | [aula-14](./aula-14) | Aula 14 | jQuery: gerador de memes com \$.getJSON na API do Imgflip, legenda ao vivo e exportação em PNG via Canvas |
+| [aula-15](./aula-15) | Aula 15 | Pokédex consumindo a PokeAPI com jQuery e paginação (10 por página) |
