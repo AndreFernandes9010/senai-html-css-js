@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #eef1f5;
+  color: #1f2933;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.cv {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.cv__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #22334a;
+  color: #ffffff;
+  padding: 2rem;
+}
+
+.cv__avatar {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cv__identity h1 {
+  font-size: 1.6rem;
+}
+
+.cv__role {
+  color: #9fb3c8;
+  margin-bottom: 0.75rem;
+}
+
+.cv__contact {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  color: #d6e0ea;
+}
+
+.cv__section {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #e5e9ee;
+}
+
+.cv__section h2 {
+  font-size: 1.1rem;
+  color: #22334a;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cv__section h3 {
+  font-size: 0.95rem;
+  color: #2f4257;
+}
+
+.cv__section ul {
+  list-style: none;
+  margin-top: 0.35rem;
+}
+
+.cv__section li {
+  padding: 0.15rem 0;
+}
+
+/* Grid de habilidades: colunas fluidas que se ajustam à largura
+   disponível sem precisar de media query — auto-fit + minmax faz
+   o número de colunas variar sozinho conforme o espaço. */
+.cv__skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.25rem;
+}
+
+.cv__job + .cv__job {
+  margin-top: 1.25rem;
+}
+
+.cv__job-meta {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.cv__projects li {
+  margin-bottom: 0.4rem;
+}
