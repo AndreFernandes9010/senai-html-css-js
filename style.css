@@ -87,6 +87,128 @@ body {
 }
 
 /* =========================================================
+   TEMA VISUAL
+   Cada região usa a cor de referência do wireframe do Notion
+   (header ciano, conteudo rosa, sidebar amarelo-oliva, parte
+   verde), mantendo o mesmo esquema em todos os breakpoints —
+   só a disposição dos blocos muda, não a identidade visual.
+   ========================================================= */
+.header {
+  background-color: #29c6de;
+  color: #0b2b30;
+}
+
+.header__logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #0b2b30;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.header__nav a {
+  color: #0b2b30;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.header__nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.conteudo {
+  background-color: #d6488e;
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.conteudo h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.conteudo p + p {
+  margin-top: 1rem;
+}
+
+.conteudo code {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.diagrama {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-top: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.sidebar {
+  background-color: #d9ce72;
+  color: #3a3410;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.sidebar__lista li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.badge--html { background-color: #e34c26; }
+.badge--css  { background-color: #264de4; }
+.badge--js   { background-color: #cc9b00; }
+.badge--flex { background-color: #29c6de; }
+.badge--media { background-color: #8e5cd9; }
+
+.parte {
+  background-color: #52d858;
+  color: #0c3310;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.parte h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+/* =========================================================
    TABLET (até 1024px)
 
    1) conteudo-wrapper muda de row para column: como os dois
