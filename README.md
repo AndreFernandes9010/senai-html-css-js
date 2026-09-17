@@ -16,3 +16,4 @@ com seu próprio conjunto de commits.
 | [aula-08](./aula-08) | Aula 08 | Bootstrap: grid, botões, navbar, formulário, card, grid responsivo e home page |
 | [aula-09](./aula-09) | Aula 09 | TechNova: ScrollSpy, Tabs, cards de equipe com modal dinâmico, FAQ e formulário validado |
 | [aula-10](./aula-10) | Aula 10 | TechNova refeita em Tailwind (sem Bootstrap): dark mode, tabs com indicador deslizante, scroll-reveal e tudo hand-rolled em JS |
+| [aula-11](./aula-11) | Aula 11 | JS Playground: editores CodeMirror com execução sandboxada em iframe, 6 conceitos de JavaScript ao vivo |
