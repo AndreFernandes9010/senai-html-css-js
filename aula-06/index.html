@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheat Sheet - Flexbox e Media Queries</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="sheet">
+    <h1>Flexbox e Media Queries</h1>
+    <p class="sheet__intro">
+      Referência rápida da Aula 06, com exemplos ao vivo de cada
+      propriedade — a base teórica usada no exercício da Aula 07.
+    </p>
+
+    <section class="sheet__section">
+      <h2>flex-direction</h2>
+      <p>Define o eixo principal do container flex.</p>
+
+      <p class="sheet__label"><code>row</code> (padrão)</p>
+      <div class="demo demo--row">
+        <div class="demo__box">1</div>
+        <div class="demo__box">2</div>
+        <div class="demo__box">3</div>
+      </div>
+
+      <p class="sheet__label"><code>column</code></p>
+      <div class="demo demo--column">
+        <div class="demo__box">1</div>
+        <div class="demo__box">2</div>
+        <div class="demo__box">3</div>
+      </div>
+    </section>
+
+    <section class="sheet__section">
+      <h2>justify-content</h2>
+      <p>Alinha os itens ao longo do eixo principal.</p>
+
+      <p class="sheet__label"><code>flex-start</code></p>
+      <div class="demo demo--justify-start">
+        <div class="demo__box">1</div>
+        <div class="demo__box">2</div>
+      </div>
+
+      <p class="sheet__label"><code>center</code></p>
+      <div class="demo demo--justify-center">
+        <div class="demo__box">1</div>
+        <div class="demo__box">2</div>
+      </div>
+
+      <p class="sheet__label"><code>space-between</code></p>
+      <div class="demo demo--justify-between">
+        <div class="demo__box">1</div>
+        <div class="demo__box">2</div>
+      </div>
+    </section>
+
+    <section class="sheet__section">
+      <h2>align-items</h2>
+      <p>Alinha os itens ao longo do eixo secundário.</p>
+
+      <p class="sheet__label"><code>flex-start</code></p>
+      <div class="demo demo--align-start">
+        <div class="demo__box">1</div>
+        <div class="demo__box demo__box--tall">2</div>
+      </div>
+
+      <p class="sheet__label"><code>center</code></p>
+      <div class="demo demo--align-center">
+        <div class="demo__box">1</div>
+        <div class="demo__box demo__box--tall">2</div>
+      </div>
+
+      <p class="sheet__label"><code>stretch</code></p>
+      <div class="demo demo--align-stretch">
+        <div class="demo__box">1</div>
+        <div class="demo__box demo__box--tall">2</div>
+      </div>
+    </section>
+
+    <section class="sheet__section">
+      <h2>flex-wrap</h2>
+      <p>Controla se os itens quebram para uma nova linha quando não cabem.</p>
+
+      <p class="sheet__label"><code>nowrap</code> (padrão — itens encolhem)</p>
+      <div class="demo demo--nowrap">
+        <div class="demo__box">1</div><div class="demo__box">2</div>
+        <div class="demo__box">3</div><div class="demo__box">4</div>
+        <div class="demo__box">5</div><div class="demo__box">6</div>
+      </div>
+
+      <p class="sheet__label"><code>wrap</code></p>
+      <div class="demo demo--wrap">
+        <div class="demo__box">1</div><div class="demo__box">2</div>
+        <div class="demo__box">3</div><div class="demo__box">4</div>
+        <div class="demo__box">5</div><div class="demo__box">6</div>
+      </div>
+    </section>
+
+    <section class="sheet__section">
+      <h2>flex-grow e order</h2>
+      <p>
+        <code>flex-grow</code> distribui o espaço extra entre os itens;
+        <code>order</code> muda a posição visual sem tocar no HTML.
+      </p>
+
+      <p class="sheet__label">Item 2 com <code>flex-grow: 2</code> (recebe o dobro do espaço extra)</p>
+      <div class="demo demo--grow">
+        <div class="demo__box">1</div>
+        <div class="demo__box demo__box--grow">2</div>
+        <div class="demo__box">3</div>
+      </div>
+
+      <p class="sheet__label">HTML na ordem 1, 2, 3 — visualmente exibido como 2, 3, 1 via <code>order</code></p>
+      <div class="demo demo--order">
+        <div class="demo__box demo__box--order-3">1</div>
+        <div class="demo__box demo__box--order-1">2</div>
+        <div class="demo__box demo__box--order-2">3</div>
+      </div>
+    </section>
+
+    <section class="sheet__section">
+      <h2>@media screen</h2>
+      <p>
+        Redimensione a janela do navegador: o quadro abaixo muda de cor
+        e texto conforme a largura da tela cruza os breakpoints usados
+        no exercício da Aula 07 (1024px e 600px).
+      </p>
+      <div class="demo__responsive">
+        <span class="demo__responsive-label demo__responsive-label--desktop">Desktop (&gt; 1024px)</span>
+        <span class="demo__responsive-label demo__responsive-label--tablet">Tablet (≤ 1024px)</span>
+        <span class="demo__responsive-label demo__responsive-label--mobile">Mobile (≤ 600px)</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
