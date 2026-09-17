@@ -208,3 +208,212 @@ a {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+/* =========================================================
+   SCROLL REVEAL (mesma técnica das Aulas 09/10)
+   ========================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   PAINÉIS DE CONCEITO
+   ========================================================= */
+.panel {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 1.5rem;
+}
+
+.panel__index {
+  font-family: "Fira Code", monospace;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.panel__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.panel__desc {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+}
+
+.panel__desc code {
+  background-color: var(--bg-panel);
+  color: var(--accent-2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* EDITOR + SAÍDA lado a lado (empilham no mobile) */
+.editor {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.editor__pane {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.9rem;
+  background-color: var(--bg-panel-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: "Fira Code", monospace;
+}
+
+.editor__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.editor__actions button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.editor__actions button:hover {
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.run-btn {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  color: #04140b !important;
+  background-color: var(--accent) !important;
+  padding: 0.3rem 0.75rem !important;
+}
+
+.run-btn:hover {
+  background-color: #6ee7a0 !important;
+}
+
+/* Textarea "crua" (fallback caso o CodeMirror não carregue) */
+.editor__pane textarea {
+  flex: 1;
+  min-height: 180px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  resize: vertical;
+  padding: 1rem;
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.editor__pane textarea:focus {
+  outline: none;
+}
+
+/* CodeMirror: ajustes para se encaixar no visual do playground */
+.CodeMirror {
+  flex: 1;
+  height: auto;
+  min-height: 180px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  background: transparent !important;
+}
+
+/* CONSOLE (saída de texto) */
+.output {
+  flex: 1;
+  padding: 1rem;
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  overflow: auto;
+  min-height: 180px;
+}
+
+.output__empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.output__line {
+  padding: 0.15rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.output__line--log { color: var(--text); }
+.output__line--error { color: var(--danger); }
+.output__line--muted { color: var(--text-muted); }
+
+.output__line::before {
+  content: "❯ ";
+  color: var(--accent);
+}
+
+.output__line--error::before {
+  content: "✕ ";
+  color: var(--danger);
+}
+
+/* PREVIEW visual (painel de DOM/Eventos) */
+.preview-frame {
+  flex: 1;
+  min-height: 180px;
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+}
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .brand { margin-bottom: 0; }
+  .sidebar__label { display: none; }
+  .sidebar__nav { flex-direction: row; flex-wrap: wrap; }
+  .sidebar__back { margin-top: 0; margin-left: auto; }
+  .editor { grid-template-columns: 1fr; }
+}
