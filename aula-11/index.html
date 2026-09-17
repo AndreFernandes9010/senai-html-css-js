@@ -56,7 +56,21 @@
           isolado num <code>&lt;iframe sandbox&gt;</code>, nunca direto
           na página.
         </p>
-        <pre class="hero__code" id="heroTyping"></pre>
+        <div class="terminal" id="heroTerminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot terminal__dot--r"></span>
+            <span class="terminal__dot terminal__dot--y"></span>
+            <span class="terminal__dot terminal__dot--g"></span>
+            <span class="terminal__title">playground.js — experimente algo</span>
+          </div>
+          <div class="terminal__body" id="heroTerminalBody"></div>
+          <div class="terminal__input-row">
+            <span class="terminal__prompt">&gt;</span>
+            <input type="text" id="heroInput" class="terminal__input" autocomplete="off"
+                   spellcheck="false" disabled aria-label="Digite uma expressão JavaScript">
+          </div>
+          <iframe id="heroSandbox" class="sandbox-frame" hidden sandbox="allow-scripts" title="Ambiente isolado do terminal"></iframe>
+        </div>
       </header>
 
       <section id="variaveis" class="panel" data-reveal>
