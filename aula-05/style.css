@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f1fb;
+  color: #2e2a4a;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.faq {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.faq h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4b3fa0;
+}
+
+.faq__item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(75, 63, 160, 0.08);
+}
+
+.faq__item summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Some o marcador padrão do navegador para o <summary>
+   (triângulo do Chrome / seta do Firefox) para usarmos o nosso. */
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  color: #4b3fa0;
+  transition: transform 0.2s ease;
+}
+
+/* Gira o "+" para virar um "x" visual quando o <details> está aberto */
+.faq__item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq__item p {
+  margin-top: 0.75rem;
+  color: #4a466b;
+  font-size: 0.95rem;
+}
