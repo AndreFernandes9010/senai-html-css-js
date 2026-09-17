@@ -1,24 +1,156 @@
 document.addEventListener("DOMContentLoaded", () => {
-  iniciarTypingHero();
+  configurarTerminalDoHero();
   configurarProgressoEScrollSpy();
   configurarRevealOnScroll();
   document.querySelectorAll(".panel").forEach(configurarPainel);
 });
 
 // ---------------------------------------------------------------
-// HERO — efeito de digitação
+// HERO — terminal interativo: digita um primeiro comando sozinho,
+// mostra o resultado, e então libera o input para o visitante
+// digitar qualquer expressão JavaScript e ver a resposta na hora.
 // ---------------------------------------------------------------
-function iniciarTypingHero() {
-  const el = document.getElementById("heroTyping");
-  const texto = 'console.log("Pronto para começar?");';
-  let i = 0;
+function configurarTerminalDoHero() {
+  const corpo = document.getElementById("heroTerminalBody");
+  const input = document.getElementById("heroInput");
+  const frame = document.getElementById("heroSandbox");
 
-  const passo = () => {
-    i++;
-    el.innerHTML = `${escapeHtml(texto.slice(0, i))}<span class="cursor"></span>`;
-    if (i < texto.length) setTimeout(passo, 40);
+  const sugestoes = [
+    "2 + 2",
+    '"Ana".toUpperCase()',
+    "[1, 2, 3].map(n => n * 2)",
+    "Math.max(4, 9, 1)",
+    "new Date().getFullYear()",
+  ];
+  let indiceSugestao = 0;
+
+  const historico = [];
+  let indiceHistorico = -1;
+
+  const adicionarLinha = (texto, tipo) => {
+    const linha = document.createElement("div");
+    linha.className = `term-line term-line--${tipo}`;
+    linha.textContent = texto;
+    corpo.appendChild(linha);
+    corpo.scrollTop = corpo.scrollHeight;
   };
-  passo();
+
+  const executar = (codigo) => {
+    adicionarLinha(codigo, "comando");
+    frame.srcdoc = montarSandboxRepl(codigo);
+  };
+
+  window.addEventListener("message", (event) => {
+    if (event.source !== frame.contentWindow) return;
+    if (!event.data || event.data.tipo !== "hero-repl") return;
+    const { logs, resultado, erro } = event.data;
+
+    logs.forEach((linha) => adicionarLinha(linha, "log"));
+    if (erro) {
+      adicionarLinha(erro, "error");
+    } else if (resultado !== null) {
+      adicionarLinha(resultado, "resultado");
+    } else if (logs.length === 0) {
+      adicionarLinha("undefined", "resultado");
+    }
+  });
+
+  // Digita o primeiro comando sozinho, à guisa de exemplo, e só
+  // depois libera o campo — como uma sessão de terminal que já
+  // começou antes da pessoa chegar.
+  const comandoInicial = 'console.log("Pronto para começar?")';
+  let i = 0;
+  const digitar = () => {
+    i++;
+    corpo.innerHTML = `<div class="term-line term-line--comando">${escapeHtml(comandoInicial.slice(0, i))}<span class="cursor"></span></div>`;
+    if (i < comandoInicial.length) {
+      setTimeout(digitar, 35);
+    } else {
+      setTimeout(() => {
+        corpo.innerHTML = "";
+        executar(comandoInicial);
+        input.disabled = false;
+        input.placeholder = sugestoes[0];
+        input.focus();
+      }, 300);
+    }
+  };
+  digitar();
+
+  // Placeholder rotativo com sugestões, só quando o campo está
+  // vazio e sem foco — um empurrãozinho de UX pra quem não sabe
+  // o que digitar.
+  setInterval(() => {
+    if (document.activeElement === input || input.value || input.disabled) return;
+    indiceSugestao = (indiceSugestao + 1) % sugestoes.length;
+    input.placeholder = sugestoes[indiceSugestao];
+  }, 2600);
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const codigo = input.value.trim();
+      if (!codigo) return;
+      historico.push(codigo);
+      indiceHistorico = historico.length;
+      input.value = "";
+      executar(codigo);
+      return;
+    }
+
+    // Setas para cima/baixo navegam pelo histórico de comandos,
+    // exatamente como num terminal de verdade.
+    if (event.key === "ArrowUp") {
+      if (indiceHistorico > 0) {
+        indiceHistorico--;
+        input.value = historico[indiceHistorico];
+        requestAnimationFrame(() => input.setSelectionRange(input.value.length, input.value.length));
+      }
+      event.preventDefault();
+    } else if (event.key === "ArrowDown") {
+      if (indiceHistorico < historico.length - 1) {
+        indiceHistorico++;
+        input.value = historico[indiceHistorico];
+      } else {
+        indiceHistorico = historico.length;
+        input.value = "";
+      }
+      event.preventDefault();
+    }
+  });
+}
+
+function montarSandboxRepl(codigo) {
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><script>
+(function () {
+  function formatarLog(valor) {
+    if (typeof valor === "string") return valor;
+    if (valor === undefined) return "undefined";
+    if (valor === null) return "null";
+    if (typeof valor === "function") return valor.toString();
+    try { return JSON.stringify(valor); } catch (e) { return String(valor); }
+  }
+  function formatarResultado(valor) {
+    if (typeof valor === "string") return JSON.stringify(valor);
+    return formatarLog(valor);
+  }
+
+  var logs = [];
+  console.log = console.warn = console.error = function () {
+    logs.push(Array.prototype.map.call(arguments, formatarLog).join(" "));
+  };
+
+  var resultado = null;
+  var erro = null;
+  try {
+    var valor = eval(${JSON.stringify(codigo)});
+    if (valor !== undefined) resultado = formatarResultado(valor);
+  } catch (e) {
+    erro = e.message;
+  }
+
+  parent.postMessage({ tipo: "hero-repl", logs: logs, resultado: resultado, erro: erro }, "*");
+})();
+</script></body></html>`;
 }
 
 // ---------------------------------------------------------------
