@@ -1,0 +1,276 @@
+/* =========================================================
+   RESET / BASE
+   box-sizing: border-box evita que padding e border somem
+   ao width definido, o que facilita muito o cálculo de
+   layouts flexíveis (ex.: conteudo 75% + sidebar 25%).
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2933;
+  background-color: #f4f6f8;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   HEADER
+   Flex só para alinhar marca e navegação lado a lado dentro
+   do próprio header. O header em si já ocupa 100% da largura
+   por ser um elemento de bloco normal — não precisa de flex
+   no nível do body para isso.
+   ========================================================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* =========================================================
+   CONTEUDO + SIDEBAR (versão desktop)
+   display: flex organiza os dois filhos em linha (row, que é
+   o valor padrão de flex-direction). O conteudo recebe o
+   triplo do espaço flexível da sidebar (flex: 3 vs flex: 1),
+   reproduzindo a proporção ~75% / ~25% da referência.
+   ========================================================= */
+.conteudo-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.conteudo {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.sidebar__lista {
+  list-style: none;
+}
+
+/* =========================================================
+   FOOTER (versão desktop)
+   Os 3 blocos dividem o espaço igualmente (flex: 1 em todos).
+   flex-wrap: wrap é o que permite que, mais tarde, a versão
+   tablet "quebre" a linha e empilhe os blocos em 2 linhas sem
+   precisar de outro container.
+   ========================================================= */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+.parte {
+  flex: 1;
+  min-width: 0; /* evita que o texto force o item a estourar o flex-basis */
+}
+
+/* =========================================================
+   TEMA VISUAL
+   Cada região usa a cor de referência do wireframe do Notion
+   (header ciano, conteudo rosa, sidebar amarelo-oliva, parte
+   verde), mantendo o mesmo esquema em todos os breakpoints —
+   só a disposição dos blocos muda, não a identidade visual.
+   ========================================================= */
+.header {
+  background-color: #29c6de;
+  color: #0b2b30;
+}
+
+.header__logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #0b2b30;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.header__nav a {
+  color: #0b2b30;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.header__nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.conteudo {
+  background-color: #d6488e;
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.conteudo h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.conteudo p + p {
+  margin-top: 1rem;
+}
+
+.conteudo code {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.diagrama {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-top: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.sidebar {
+  background-color: #d9ce72;
+  color: #3a3410;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.sidebar__lista li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.badge--html { background-color: #e34c26; }
+.badge--css  { background-color: #264de4; }
+.badge--js   { background-color: #cc9b00; }
+.badge--flex { background-color: #29c6de; }
+.badge--media { background-color: #8e5cd9; }
+
+.parte {
+  background-color: #52d858;
+  color: #0c3310;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.parte h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+/* =========================================================
+   TABLET (até 1024px)
+
+   1) conteudo-wrapper muda de row para column: como os dois
+      filhos têm flex-basis automático, ao virar coluna cada um
+      passa a ocupar 100% da largura, empilhados (conteudo em
+      cima, sidebar embaixo — igual à referência).
+
+   2) footer continua flex row + wrap, mas agora usa "order"
+      para reordenar visualmente sem tocar no HTML:
+        - parte2 ganha flex-basis: 100%, então ela sozinha já
+          preenche a linha inteira e força um quebra de linha
+          (graças ao flex-wrap: wrap definido no desktop);
+        - order: -1 na parte2 garante que ela apareça primeiro,
+          mesmo sendo a segunda no HTML;
+        - parte1 e parte3 (order: 1 e 2) sobram para a segunda
+          linha e dividem o espaço em 2 colunas (flex: 1).
+   ========================================================= */
+@media (max-width: 1024px) {
+  .conteudo-wrapper {
+    flex-direction: column;
+  }
+
+  .parte2 {
+    order: -1;
+    flex-basis: 100%;
+  }
+
+  .parte1 {
+    order: 1;
+  }
+
+  .parte3 {
+    order: 2;
+  }
+}
+
+/* =========================================================
+   MOBILE (até 600px)
+
+   O footer volta a ser flex-direction: column. Como "order"
+   também vale para eixo vertical, não basta mudar a direção:
+   é preciso zerar o order de cada parte (voltando ao valor
+   inicial 0) para que a ordem visual volte a seguir a ordem
+   real do HTML — parte1, parte2, parte3, nessa sequência.
+
+   Resultado final da página em mobile, de cima para baixo:
+   header → conteudo → sidebar → parte1 → parte2 → parte3.
+   ========================================================= */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .parte1,
+  .parte2,
+  .parte3 {
+    order: 0;
+    flex-basis: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
