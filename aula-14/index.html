@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Memes — Aula 14 (jQuery)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- jQuery via CDN, exatamente como no material da aula -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="progress" id="progressBar"></div>
+
+  <header class="hero">
+    <a class="back-link" href="../aula-13/">← Aula 13</a>
+    <span class="hero__badge">Aula 14 · jQuery</span>
+    <h1 class="hero__title">Um gerador de memes <span>de verdade</span></h1>
+    <p class="hero__subtitle">
+      $.getJSON busca templates reais na API do Imgflip, jQuery monta os
+      cards e anima a entrada, e um &lt;canvas&gt; escondido exporta o
+      meme finalizado em PNG — tudo rodando no seu navegador.
+    </p>
+  </header>
+
+  <main class="wrap">
+
+    <!-- BUSCA + GRID -->
+    <section class="panel" data-reveal>
+      <div class="panel__head">
+        <h2>Escolha um template</h2>
+        <input type="text" id="buscaInput" class="search-input" placeholder="Buscar meme (ex: drake, buttons...)" autocomplete="off">
+      </div>
+
+      <div id="estadoCarregando" class="status">Carregando templates da API do Imgflip…</div>
+      <div id="estadoErro" class="status status--erro" hidden>
+        Não foi possível carregar os templates agora.
+        <button type="button" id="tentarNovamente" class="btn-ghost">Tentar novamente</button>
+      </div>
+      <p id="semResultados" class="status" hidden>Nenhum template encontrado para essa busca.</p>
+
+      <div class="meme-grid" id="memeGrid"></div>
+    </section>
+
+    <!-- EDITOR -->
+    <section class="panel" id="editor" data-reveal hidden>
+      <div class="panel__head">
+        <h2>Editar legenda</h2>
+        <button type="button" id="fecharEditor" class="btn-ghost">Fechar</button>
+      </div>
+
+      <div class="editor">
+        <div class="editor__preview">
+          <div class="meme-canvas" id="memeCanvas">
+            <img id="memeImg" alt="">
+            <span class="meme-text meme-text--top" id="textoTopo"></span>
+            <span class="meme-text meme-text--baixo" id="textoBaixo"></span>
+          </div>
+        </div>
+
+        <div class="editor__controls">
+          <div class="field">
+            <label for="inputTopo">Texto de cima</label>
+            <input type="text" id="inputTopo" placeholder="Ex: QUANDO O DEPLOY">
+          </div>
+          <div class="field">
+            <label for="inputBaixo">Texto de baixo</label>
+            <input type="text" id="inputBaixo" placeholder="Ex: FUNCIONA NA PRIMEIRA">
+          </div>
+          <button type="button" id="baixarMeme" class="btn-primary">⬇ Baixar meme (PNG)</button>
+          <p class="editor__status" id="editorStatus"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERÊNCIA RÁPIDA -->
+    <section class="panel" data-reveal>
+      <div class="panel__head">
+        <h2>jQuery vs. JavaScript puro</h2>
+        <button type="button" id="toggleReferencia" class="btn-ghost" aria-expanded="false">Mostrar comparação</button>
+      </div>
+      <div class="compare" id="compareBox" hidden>
+        <div class="compare__item">
+          <p class="compare__label">Esconder um elemento</p>
+          <pre class="mono">vanilla: el.style.display = "none";
+jQuery:  $(el).hide();</pre>
+        </div>
+        <div class="compare__item">
+          <p class="compare__label">Ouvir um clique</p>
+          <pre class="mono">vanilla: el.addEventListener("click", fn);
+jQuery:  $(el).on("click", fn);</pre>
+        </div>
+        <div class="compare__item">
+          <p class="compare__label">Buscar dados de uma API</p>
+          <pre class="mono">vanilla: fetch(url).then(r => r.json());
+jQuery:  $.getJSON(url, dados => { ... });</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <canvas id="exportCanvas" hidden></canvas>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
