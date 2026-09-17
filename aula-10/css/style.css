@@ -102,6 +102,28 @@ html {
   color: #ffffff;
 }
 
+/* TABS de serviços — o botão em si só precisa de texto e padding;
+   quem "pinta" o fundo ativo é o #tabIndicator deslizante (ver
+   js/script.js), não o próprio botão. */
+.tab-btn {
+  position: relative;
+  z-index: 10;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+  transition: color 0.2s ease;
+}
+
+.dark .tab-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tab-btn.is-active {
+  color: #ffffff;
+}
+
 /* SCROLL REVEAL — elementos com [data-reveal] começam invisíveis e
    deslocados; o IntersectionObserver em js/script.js adiciona
    .is-visible quando entram na viewport. */
