@@ -17,3 +17,4 @@ com seu próprio conjunto de commits.
 | [aula-09](./aula-09) | Aula 09 | TechNova: ScrollSpy, Tabs, cards de equipe com modal dinâmico, FAQ e formulário validado |
 | [aula-10](./aula-10) | Aula 10 | TechNova refeita em Tailwind (sem Bootstrap): dark mode, tabs com indicador deslizante, scroll-reveal e tudo hand-rolled em JS |
 | [aula-11](./aula-11) | Aula 11 | JS Playground: editores CodeMirror com execução sandboxada em iframe, 6 conceitos de JavaScript ao vivo |
+| [aula-12](./aula-12) | Aula 12 | 10 exercícios de JS como mini-ferramentas reativas: paleta de comando (Ctrl+K), gráficos, progresso gamificado e confete |
