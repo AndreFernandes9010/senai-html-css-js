@@ -182,5 +182,47 @@
     </div>
   </section>
 
+  <!-- EQUIPE -->
+  <section id="equipe" class="py-24 px-4 bg-slate-50 dark:bg-white/[0.03]">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <h2 class="text-3xl font-extrabold text-center mb-2">Nossa Equipe</h2>
+      <p class="text-center text-slate-500 dark:text-slate-400 mb-12">Pessoas por trás de cada entrega.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="teamGrid">
+        <!-- Os 4 cards são gerados por js/script.js a partir do mesmo
+             objeto MEMBROS usado para popular o modal — uma única
+             fonte de verdade para os dados da equipe. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE PERFIL — construído do zero (sem Bootstrap): overlay
+       fixo + backdrop-blur, populado via JS, fechado por clique fora,
+       tecla Esc ou botão de fechar. -->
+  <div id="profileModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-hidden="true">
+    <div id="profileModalBackdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+
+    <div id="profileModalContent" class="relative w-full max-w-sm rounded-3xl overflow-hidden bg-white dark:bg-ink-800 shadow-2xl">
+      <div class="h-28 bg-gradient-to-br from-brand-600 to-fuchsia-500 relative">
+        <button id="profileModalClose" type="button" aria-label="Fechar"
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-colors">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div id="profileModalAvatar" class="absolute left-1/2 -bottom-10 -translate-x-1/2 w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-2xl ring-4 ring-white dark:ring-ink-800 shadow-lg"></div>
+      </div>
+
+      <div class="pt-14 pb-8 px-8 text-center">
+        <h3 id="profileModalName" class="text-xl font-extrabold"></h3>
+        <p id="profileModalRole" class="text-brand-500 dark:text-brand-300 font-semibold text-sm mb-4"></p>
+        <p id="profileModalBio" class="text-slate-500 dark:text-slate-400 text-sm mb-6"></p>
+
+        <h4 class="text-xs font-bold uppercase tracking-wide text-slate-400 mb-3">Habilidades</h4>
+        <div id="profileModalSkills" class="flex flex-wrap justify-center gap-2 mb-6"></div>
+
+        <div id="profileModalSocials" class="flex justify-center gap-3"></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
