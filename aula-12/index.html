@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de JavaScript — Aula 12</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress" id="progressBar"></div>
+
+  <header class="hero">
+    <a class="back-link" href="../aula-11/">← Aula 11</a>
+    <div class="hero__top-row">
+      <span class="hero__badge">Aula 12 · Exercícios de JavaScript</span>
+      <button type="button" class="kbd-hint" id="openPalette">
+        Buscar exercício <kbd>Ctrl</kbd><kbd>K</kbd>
+      </button>
+    </div>
+    <h1 class="hero__title">10 exercícios clássicos, <span>10 ferramentas de verdade</span></h1>
+    <p class="hero__subtitle">
+      Cada exercício do enunciado virou uma mini-ferramenta interativa
+      abaixo — sem <code>prompt()</code>/<code>alert()</code>, com
+      entrada e saída na própria página, a maioria calculando em tempo
+      real enquanto você digita.
+    </p>
+
+    <div class="hero__progress" id="heroProgress">
+      <div class="hero__progress-track">
+        <div class="hero__progress-fill" id="heroProgressFill"></div>
+      </div>
+      <span class="hero__progress-label">
+        <strong id="heroProgressCount">0</strong>/10 exercícios testados
+      </span>
+      <button type="button" class="hero__progress-reset" id="heroProgressReset">Zerar progresso</button>
+    </div>
+  </header>
+
+  <main class="exercises" id="exercisesList">
+    <!-- Os 10 cards são gerados por js/script.js a partir do array
+         EXERCICIOS — um "form builder" simples que evita repetir a
+         mesma marcação de card/input/botão dez vezes. -->
+  </main>
+
+  <!-- PALETA DE COMANDO — Ctrl/Cmd+K abre, busca por título e pula
+       (com scroll suave + foco no primeiro campo) para o exercício. -->
+  <div class="palette" id="palette" hidden>
+    <div class="palette__backdrop" id="paletteBackdrop"></div>
+    <div class="palette__box" role="dialog" aria-modal="true" aria-label="Buscar exercício">
+      <div class="palette__input-row">
+        <span>⌘</span>
+        <input type="text" id="paletteInput" placeholder="Digite o nome do exercício..." autocomplete="off">
+      </div>
+      <div class="palette__results" id="paletteResults"></div>
+    </div>
+  </div>
+
+  <!-- Camada de confete, preenchida via JS quando os 10 exercícios
+       são concluídos — sem nenhuma biblioteca externa. -->
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
