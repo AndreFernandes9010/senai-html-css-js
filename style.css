@@ -122,3 +122,33 @@ body {
     order: 2;
   }
 }
+
+/* =========================================================
+   MOBILE (até 600px)
+
+   O footer volta a ser flex-direction: column. Como "order"
+   também vale para eixo vertical, não basta mudar a direção:
+   é preciso zerar o order de cada parte (voltando ao valor
+   inicial 0) para que a ordem visual volte a seguir a ordem
+   real do HTML — parte1, parte2, parte3, nessa sequência.
+
+   Resultado final da página em mobile, de cima para baixo:
+   header → conteudo → sidebar → parte1 → parte2 → parte3.
+   ========================================================= */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .parte1,
+  .parte2,
+  .parte3 {
+    order: 0;
+    flex-basis: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
