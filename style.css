@@ -85,3 +85,40 @@ body {
   flex: 1;
   min-width: 0; /* evita que o texto force o item a estourar o flex-basis */
 }
+
+/* =========================================================
+   TABLET (até 1024px)
+
+   1) conteudo-wrapper muda de row para column: como os dois
+      filhos têm flex-basis automático, ao virar coluna cada um
+      passa a ocupar 100% da largura, empilhados (conteudo em
+      cima, sidebar embaixo — igual à referência).
+
+   2) footer continua flex row + wrap, mas agora usa "order"
+      para reordenar visualmente sem tocar no HTML:
+        - parte2 ganha flex-basis: 100%, então ela sozinha já
+          preenche a linha inteira e força um quebra de linha
+          (graças ao flex-wrap: wrap definido no desktop);
+        - order: -1 na parte2 garante que ela apareça primeiro,
+          mesmo sendo a segunda no HTML;
+        - parte1 e parte3 (order: 1 e 2) sobram para a segunda
+          linha e dividem o espaço em 2 colunas (flex: 1).
+   ========================================================= */
+@media (max-width: 1024px) {
+  .conteudo-wrapper {
+    flex-direction: column;
+  }
+
+  .parte2 {
+    order: -1;
+    flex-basis: 100%;
+  }
+
+  .parte1 {
+    order: 1;
+  }
+
+  .parte3 {
+    order: 2;
+  }
+}
