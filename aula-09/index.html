@@ -144,5 +144,106 @@
     </div>
   </section>
 
+  <!-- EQUIPE -->
+  <section id="equipe" class="tn-section tn-section--alt">
+    <div class="container">
+      <h2 class="tn-section__title text-center">Nossa Equipe</h2>
+      <p class="tn-section__subtitle text-center">Pessoas por trás de cada entrega.</p>
+
+      <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card tn-team-card h-100 text-center">
+            <div class="card-body">
+              <div class="tn-avatar tn-avatar--lg mx-auto mb-3" style="--tn-avatar-color: #4f46e5;">RN</div>
+              <h3 class="h6 mb-1">Rafael Nakamura</h3>
+              <p class="tn-team-card__role">Desenvolvedor Front-end</p>
+              <p class="tn-team-card__bio">Especialista em interfaces rápidas e acessíveis.</p>
+              <button type="button" class="btn tn-btn-outline btn-sm mt-2"
+                      data-bs-toggle="modal" data-bs-target="#modalPerfil"
+                      data-member-id="rafael">
+                Mais Informações
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card tn-team-card h-100 text-center">
+            <div class="card-body">
+              <div class="tn-avatar tn-avatar--lg mx-auto mb-3" style="--tn-avatar-color: #0d9488;">CD</div>
+              <h3 class="h6 mb-1">Camila Duarte</h3>
+              <p class="tn-team-card__role">Desenvolvedora Back-end</p>
+              <p class="tn-team-card__bio">Constrói APIs robustas e escaláveis.</p>
+              <button type="button" class="btn tn-btn-outline btn-sm mt-2"
+                      data-bs-toggle="modal" data-bs-target="#modalPerfil"
+                      data-member-id="camila">
+                Mais Informações
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card tn-team-card h-100 text-center">
+            <div class="card-body">
+              <div class="tn-avatar tn-avatar--lg mx-auto mb-3" style="--tn-avatar-color: #ea580c;">BA</div>
+              <h3 class="h6 mb-1">Bruno Azevedo</h3>
+              <p class="tn-team-card__role">Especialista em Mobile</p>
+              <p class="tn-team-card__bio">Apps nativos com foco em performance.</p>
+              <button type="button" class="btn tn-btn-outline btn-sm mt-2"
+                      data-bs-toggle="modal" data-bs-target="#modalPerfil"
+                      data-member-id="bruno">
+                Mais Informações
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card tn-team-card h-100 text-center">
+            <div class="card-body">
+              <div class="tn-avatar tn-avatar--lg mx-auto mb-3" style="--tn-avatar-color: #be185d;">LP</div>
+              <h3 class="h6 mb-1">Larissa Prado</h3>
+              <p class="tn-team-card__role">UX/UI Designer</p>
+              <p class="tn-team-card__bio">Cria experiências claras e acessíveis.</p>
+              <button type="button" class="btn tn-btn-outline btn-sm mt-2"
+                      data-bs-toggle="modal" data-bs-target="#modalPerfil"
+                      data-member-id="larissa">
+                Mais Informações
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE PERFIL — um único modal, reaproveitado e preenchido
+       dinamicamente via JS (js/script.js) a partir do data-member-id
+       do botão que o abriu. Evita repetir 4 modais quase idênticos
+       e é o padrão usado em produtos reais. -->
+  <div class="modal fade tn-modal" id="modalPerfil" tabindex="-1" aria-labelledby="modalPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content tn-modal__content">
+        <div class="tn-modal__banner">
+          <button type="button" class="btn-close btn-close-white tn-modal__close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <div class="tn-avatar tn-avatar--xl tn-modal__avatar" id="modalPerfilAvatar"></div>
+        </div>
+        <div class="modal-body tn-modal__body">
+          <h2 class="tn-modal__name" id="modalPerfilLabel"></h2>
+          <p class="tn-modal__role" id="modalPerfilRole"></p>
+          <p class="tn-modal__bio" id="modalPerfilBio"></p>
+
+          <h3 class="tn-modal__section-title">Habilidades</h3>
+          <div class="tn-modal__skills" id="modalPerfilSkills"></div>
+
+          <div class="tn-modal__socials" id="modalPerfilSocials"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
