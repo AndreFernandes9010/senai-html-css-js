@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="faq">
+    <h1>Perguntas Frequentes</h1>
+
+    <!-- <details>/<summary> dão o comportamento de accordion
+         nativamente no HTML, sem precisar de JavaScript (que ainda
+         não foi visto no curso nesta altura). -->
+    <details class="faq__item" open>
+      <summary>O que é Flexbox?</summary>
+      <p>
+        Flexbox é um modelo de layout do CSS que organiza itens em uma
+        única direção (linha ou coluna), facilitando alinhamento e
+        distribuição de espaço entre eles.
+      </p>
+    </details>
+
+    <details class="faq__item">
+      <summary>Para que servem as media queries?</summary>
+      <p>
+        Media queries aplicam estilos diferentes conforme características
+        da tela, como largura ou orientação, permitindo criar layouts
+        responsivos que se adaptam a desktop, tablet e celular.
+      </p>
+    </details>
+
+    <details class="faq__item">
+      <summary>Qual a diferença entre flex-grow e flex-basis?</summary>
+      <p>
+        flex-basis define o tamanho inicial de um item antes de o espaço
+        sobrar ser distribuído; flex-grow define quanto desse espaço extra
+        cada item deve receber, em proporção aos demais.
+      </p>
+    </details>
+
+    <details class="faq__item">
+      <summary>É possível reordenar itens sem mudar o HTML?</summary>
+      <p>
+        Sim. A propriedade <code>order</code> permite mudar a posição
+        visual de um item flex sem alterar sua posição no código HTML,
+        muito usado em media queries para reorganizar layouts.
+      </p>
+    </details>
+  </main>
+
+</body>
+</html>
