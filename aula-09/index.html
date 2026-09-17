@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNova - Soluções Tecnológicas e Inovação Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarPrincipal" data-bs-offset="90" tabindex="0">
+
+  <!-- NAVBAR com ScrollSpy: data-bs-spy no body observa as sections e
+       destaca automaticamente o link correspondente em #navbarPrincipal
+       conforme o usuário rola a página. -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top tn-navbar">
+    <div class="container">
+      <a class="navbar-brand tn-brand" href="#inicio">
+        <span class="tn-brand__mark">TN</span> TechNova
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+              aria-controls="navbarPrincipal" aria-expanded="false"
+              aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="tn-hero">
+    <div class="container text-center">
+      <span class="badge tn-hero__badge mb-3">Soluções Tecnológicas &amp; Inovação Digital</span>
+      <h1 class="tn-hero__title">Transformamos ideias em <span>produtos digitais</span></h1>
+      <p class="tn-hero__subtitle">
+        A TechNova ajuda empresas a crescer com desenvolvimento web, mobile
+        e consultoria em nuvem sob medida para cada desafio.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#servicos" class="btn tn-btn-primary btn-lg">Conhecer serviços</a>
+        <a href="#contato" class="btn btn-outline-light btn-lg">Falar com a gente</a>
+      </div>
+    </div>
+  </header>
+
+</body>
+</html>
