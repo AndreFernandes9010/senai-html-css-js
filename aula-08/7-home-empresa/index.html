@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFlow - Soluções em Tecnologia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#inicio">TechFlow</a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+              aria-controls="navbarPrincipal" aria-expanded="false"
+              aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CAROUSEL -->
+  <div id="carouselDestaques" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="d-block w-100 carousel-banner" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Banner sobre desenvolvimento web">
+          <rect width="900" height="320" fill="#1e3a8a"/>
+          <circle cx="760" cy="80" r="120" fill="#2563eb" opacity="0.5"/>
+        </svg>
+        <div class="carousel-caption">
+          <h2>Desenvolvimento Web</h2>
+          <p>Sites e sistemas sob medida para o seu negócio.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="d-block w-100 carousel-banner" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Banner sobre aplicativos móveis">
+          <rect width="900" height="320" fill="#065f46"/>
+          <circle cx="150" cy="240" r="140" fill="#10b981" opacity="0.5"/>
+        </svg>
+        <div class="carousel-caption">
+          <h2>Aplicativos Móveis</h2>
+          <p>Apps nativos e multiplataforma para iOS e Android.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="d-block w-100 carousel-banner" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Banner sobre consultoria em nuvem">
+          <rect width="900" height="320" fill="#7c2d12"/>
+          <circle cx="500" cy="60" r="100" fill="#f97316" opacity="0.5"/>
+        </svg>
+        <div class="carousel-caption">
+          <h2>Consultoria em Nuvem</h2>
+          <p>Infraestrutura escalável com AWS, Azure e GCP.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+
+  <!-- SERVIÇOS (cards) -->
+  <section id="servicos" class="container py-5">
+    <h2 class="text-center mb-5">Nossos Serviços</h2>
+    <div class="row g-4">
+
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="service-icon bg-primary bg-opacity-10 text-primary mx-auto mb-3">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h3 class="h5 card-title">Desenvolvimento Web</h3>
+            <p class="card-text">
+              Sites institucionais, e-commerces e sistemas web responsivos,
+              construídos com as melhores práticas do mercado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="service-icon bg-success bg-opacity-10 text-success mx-auto mb-3">
+              <i class="bi bi-phone"></i>
+            </div>
+            <h3 class="h5 card-title">Aplicativos Móveis</h3>
+            <p class="card-text">
+              Apps para iOS e Android com foco em performance e experiência
+              do usuário.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="service-icon bg-warning bg-opacity-10 text-warning mx-auto mb-3">
+              <i class="bi bi-cloud"></i>
+            </div>
+            <h3 class="h5 card-title">Consultoria em Nuvem</h3>
+            <p class="card-text">
+              Planejamento, migração e otimização de infraestrutura em
+              nuvem para escalar com segurança.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="bg-light py-5">
+    <div class="container" style="max-width: 560px;">
+      <h2 class="text-center mb-4">Fale Conosco</h2>
+      <form>
+        <div class="row g-3">
+          <div class="col-12 col-sm-6">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="seu@email.com">
+          </div>
+          <div class="col-12">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="mensagem" rows="4" placeholder="Como podemos ajudar?"></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100">Enviar mensagem</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h3 class="h5">TechFlow</h3>
+          <p class="text-secondary">
+            Soluções tecnológicas e inovação digital para empresas de
+            todos os tamanhos.
+          </p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h3 class="h6">Links</h3>
+          <ul class="list-unstyled">
+            <li><a href="#inicio" class="link-light link-underline-opacity-0">Início</a></li>
+            <li><a href="#servicos" class="link-light link-underline-opacity-0">Serviços</a></li>
+            <li><a href="#contato" class="link-light link-underline-opacity-0">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h3 class="h6">Contato</h3>
+          <ul class="list-unstyled text-secondary">
+            <li>contato@techflow.com.br</li>
+            <li>(11) 4000-0000</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="text-center text-secondary small mb-0">
+        &copy; 2026 TechFlow. Projeto fictício para fins didáticos.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
