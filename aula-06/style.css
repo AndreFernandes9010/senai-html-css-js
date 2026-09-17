@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2933;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.sheet {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.sheet h1 {
+  color: #22334a;
+}
+
+.sheet__intro {
+  color: #52606d;
+  margin: 0.5rem 0 2rem;
+}
+
+.sheet__section {
+  margin-bottom: 2.5rem;
+}
+
+.sheet__section h2 {
+  color: #22334a;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.sheet__section > p {
+  color: #52606d;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.sheet__label {
+  font-size: 0.8rem;
+  color: #7b8794;
+  margin: 0.75rem 0 0.35rem;
+}
+
+code {
+  background-color: #e4e7eb;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Container genérico de cada demo: sempre display:flex, o que muda
+   é a propriedade específica sendo ilustrada em cada variante. */
+.demo {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  border: 1px dashed #cbd2d9;
+  border-radius: 8px;
+  padding: 0.75rem;
+  min-height: 4.5rem;
+}
+
+.demo__box {
+  background-color: #29c6de;
+  color: #0b2b30;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.demo__box--tall {
+  height: 4rem;
+}
+
+/* flex-direction */
+.demo--row { flex-direction: row; }
+.demo--column { flex-direction: column; }
+
+/* justify-content */
+.demo--justify-start { justify-content: flex-start; }
+.demo--justify-center { justify-content: center; }
+.demo--justify-between { justify-content: space-between; }
+
+/* align-items */
+.demo--align-start { align-items: flex-start; }
+.demo--align-center { align-items: center; }
+.demo--align-stretch { align-items: stretch; }
+.demo--align-stretch .demo__box--tall { height: auto; }
+
+/* flex-wrap */
+.demo--nowrap {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.demo--wrap { flex-wrap: wrap; }
+
+/* flex-grow */
+.demo--grow .demo__box--grow {
+  flex-grow: 2;
+}
+.demo--grow .demo__box:not(.demo__box--grow) {
+  flex-grow: 1;
+}
+
+/* order: a ordem visual não segue a ordem do HTML acima */
+.demo__box--order-1 { order: 1; }
+.demo__box--order-2 { order: 2; }
+.demo__box--order-3 { order: 3; }
+
+/* Bloco de demonstração de @media screen: só um dos 3 textos
+   fica visível por vez, dependendo da largura da janela. */
+.demo__responsive {
+  background-color: #29c6de;
+  color: #0b2b30;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.demo__responsive-label {
+  display: none;
+}
+
+.demo__responsive-label--desktop {
+  display: block;
+}
+
+@media screen and (max-width: 1024px) {
+  .demo__responsive {
+    background-color: #d9ce72;
+  }
+  .demo__responsive-label--desktop { display: none; }
+  .demo__responsive-label--tablet { display: block; }
+}
+
+@media screen and (max-width: 600px) {
+  .demo__responsive {
+    background-color: #52d858;
+  }
+  .demo__responsive-label--tablet { display: none; }
+  .demo__responsive-label--mobile { display: block; }
+}
