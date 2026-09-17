@@ -12,4 +12,4 @@ com seu próprio conjunto de commits.
 | [aula-04](./aula-04) | Aula 04 | Card de perfil (HTML + CSS) |
 | [aula-05](./aula-05) | Aula 05 | Componente de FAQ / accordion |
 | [aula-06](./aula-06) | Aula 06 | Referência de Flexbox e Media Queries |
-| [aula-08](./aula-08) | Aula 07 | Exercício Flex e Media (layout responsivo) |
+| [aula-07](./aula-07) | Aula 07 | Exercício Flex e Media (layout responsivo) |
