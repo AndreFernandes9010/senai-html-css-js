@@ -54,5 +54,95 @@
     </div>
   </header>
 
+  <!-- SERVIÇOS com Tabs -->
+  <section id="servicos" class="tn-section">
+    <div class="container">
+      <h2 class="tn-section__title text-center">Nossos Serviços</h2>
+      <p class="tn-section__subtitle text-center">Quatro frentes, um só padrão de qualidade.</p>
+
+      <ul class="nav nav-pills tn-tabs justify-content-center mb-4" id="servicosTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab-web-btn" data-bs-toggle="tab" data-bs-target="#tab-web" type="button" role="tab" aria-controls="tab-web" aria-selected="true">
+            <i class="bi bi-code-slash me-1"></i> Web
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-mobile-btn" data-bs-toggle="tab" data-bs-target="#tab-mobile" type="button" role="tab" aria-controls="tab-mobile" aria-selected="false">
+            <i class="bi bi-phone me-1"></i> Mobile
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-iot-btn" data-bs-toggle="tab" data-bs-target="#tab-iot" type="button" role="tab" aria-controls="tab-iot" aria-selected="false">
+            <i class="bi bi-cpu me-1"></i> IoT
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-consultoria-btn" data-bs-toggle="tab" data-bs-target="#tab-consultoria" type="button" role="tab" aria-controls="tab-consultoria" aria-selected="false">
+            <i class="bi bi-cloud me-1"></i> Consultoria
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content tn-tab-content" id="servicosTabContent">
+        <div class="tab-pane fade show active" id="tab-web" role="tabpanel" aria-labelledby="tab-web-btn">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-2 text-center">
+              <i class="bi bi-code-slash tn-tab-icon"></i>
+            </div>
+            <div class="col-12 col-md-10">
+              <h3 class="h5">Desenvolvimento Web</h3>
+              <p class="mb-0 text-secondary">
+                Sites institucionais, e-commerces e sistemas web responsivos,
+                do design à implantação, com foco em performance e SEO.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-mobile" role="tabpanel" aria-labelledby="tab-mobile-btn">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-2 text-center">
+              <i class="bi bi-phone tn-tab-icon"></i>
+            </div>
+            <div class="col-12 col-md-10">
+              <h3 class="h5">Aplicativos Móveis</h3>
+              <p class="mb-0 text-secondary">
+                Apps nativos e multiplataforma para iOS e Android, com
+                experiência de uso pensada para cada tipo de tela.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-iot" role="tabpanel" aria-labelledby="tab-iot-btn">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-2 text-center">
+              <i class="bi bi-cpu tn-tab-icon"></i>
+            </div>
+            <div class="col-12 col-md-10">
+              <h3 class="h5">Internet das Coisas</h3>
+              <p class="mb-0 text-secondary">
+                Sensores, dispositivos conectados e dashboards em tempo real
+                para monitorar e automatizar processos físicos.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-consultoria" role="tabpanel" aria-labelledby="tab-consultoria-btn">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-md-2 text-center">
+              <i class="bi bi-cloud tn-tab-icon"></i>
+            </div>
+            <div class="col-12 col-md-10">
+              <h3 class="h5">Consultoria em Nuvem</h3>
+              <p class="mb-0 text-secondary">
+                Planejamento, migração e otimização de infraestrutura em
+                AWS, Azure e GCP, com foco em custo e escalabilidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
