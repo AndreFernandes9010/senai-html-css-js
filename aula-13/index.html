@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafios — Aula 13</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress" id="progressBar"></div>
+
+  <header class="hero">
+    <a class="back-link" href="../aula-12/">← Aula 12</a>
+    <span class="hero__badge">Aula 13 · Desafios</span>
+    <h1 class="hero__title">Dois desafios, <span>validação de verdade</span></h1>
+    <p class="hero__subtitle">
+      Verificador de palíndromo com visualização de dois ponteiros e um
+      verificador de senha segura com checklist reativo — nada de
+      <code>alert()</code>, tudo ao vivo na página.
+    </p>
+  </header>
+
+  <main class="challenges">
+
+    <!-- DESAFIO 1 — Palíndromo -->
+    <section class="card" id="palindromo" data-reveal>
+      <div class="card__head">
+        <span class="card__index">01</span>
+        <h2 class="card__title">Verificador de Palíndromos</h2>
+      </div>
+      <p class="card__desc">
+        Digite um número inteiro positivo. Cada par de dígitos (das pontas
+        para o centro) é comparado ao vivo — os dois ponteiros se encontram
+        no meio, exatamente como o algoritmo funciona por trás.
+      </p>
+
+      <div class="field-inline">
+        <input type="text" inputmode="numeric" id="palindromoInput" placeholder="Ex: 12321" autocomplete="off">
+        <button type="button" id="palindromoLimpar" class="btn-ghost">Limpar</button>
+      </div>
+
+      <div class="digit-row" id="digitRow" aria-hidden="true"></div>
+
+      <div class="verdict" id="palindromoVerdict">
+        <p class="verdict__text verdict__text--empty">O resultado aparece aqui.</p>
+      </div>
+
+      <div class="examples">
+        <span>Tentar:</span>
+        <button type="button" class="chip-btn" data-exemplo="121">121</button>
+        <button type="button" class="chip-btn" data-exemplo="1331">1331</button>
+        <button type="button" class="chip-btn" data-exemplo="12321">12321</button>
+        <button type="button" class="chip-btn" data-exemplo="123456">123456</button>
+      </div>
+    </section>
+
+    <!-- DESAFIO 2 — Senha Segura -->
+    <section class="card" id="senha" data-reveal>
+      <div class="card__head">
+        <span class="card__index">02</span>
+        <h2 class="card__title">Verificador de Senha Segura</h2>
+      </div>
+      <p class="card__desc">
+        Os 5 critérios são validados em tempo real, sem enviar ou guardar a
+        senha em lugar nenhum — tudo acontece localmente, no seu navegador.
+      </p>
+
+      <div class="field-inline">
+        <div class="password-field">
+          <input type="password" id="senhaInput" placeholder="Digite uma senha..." autocomplete="new-password">
+          <button type="button" id="senhaToggle" class="icon-btn" aria-label="Mostrar senha">👁</button>
+        </div>
+        <button type="button" id="senhaGerar" class="btn-ghost">Gerar senha forte</button>
+      </div>
+
+      <div class="strength" id="strengthMeter">
+        <div class="strength__segments">
+          <span class="strength__segment" data-segment></span>
+          <span class="strength__segment" data-segment></span>
+          <span class="strength__segment" data-segment></span>
+          <span class="strength__segment" data-segment></span>
+          <span class="strength__segment" data-segment></span>
+        </div>
+        <span class="strength__label" id="strengthLabel">Digite uma senha</span>
+      </div>
+
+      <ul class="checklist" id="checklist"></ul>
+    </section>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
