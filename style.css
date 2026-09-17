@@ -1,0 +1,18 @@
+/* =========================================================
+   RESET / BASE
+   box-sizing: border-box evita que padding e border somem
+   ao width definido, o que facilita muito o cálculo de
+   layouts flexíveis (ex.: conteudo 75% + sidebar 25%).
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f2933;
+  background-color: #f4f6f8;
+  line-height: 1.5;
+}

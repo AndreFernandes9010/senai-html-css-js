@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 07 - Exercício Flex e Media</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho: ocupa a largura toda em qualquer resolução -->
+  <header class="header">
+    <div class="header__brand">
+      <!-- Ícone SVG inline: não depende de conexão com a internet -->
+      <svg class="header__logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="7" rx="1.5" fill="currentColor"/>
+        <rect x="2" y="11" width="12" height="11" rx="1.5" fill="currentColor" opacity="0.75"/>
+        <rect x="16" y="11" width="6" height="11" rx="1.5" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <h1>Portal do Aluno</h1>
+    </div>
+    <nav class="header__nav">
+      <a href="#conteudo">Início</a>
+      <a href="#conteudo">Cursos</a>
+      <a href="#sidebar">Categorias</a>
+      <a href="#footer">Contato</a>
+    </nav>
+  </header>
+
+  <!-- Envolve conteúdo + sidebar para que fiquem lado a lado (desktop)
+       ou empilhados (tablet/mobile) usando flexbox -->
+  <main class="conteudo-wrapper">
+
+    <section id="conteudo" class="conteudo">
+      <h2>Introdução ao Flexbox</h2>
+      <p>
+        O Flexbox é um modelo de layout do CSS que organiza itens em uma única
+        direção (linha ou coluna), distribuindo espaço e alinhando elementos
+        de forma flexível, mesmo quando o tamanho deles é desconhecido ou
+        dinâmico.
+      </p>
+      <p>
+        Combinado com media queries, o Flexbox permite criar layouts
+        responsivos: a mesma marcação HTML se reorganiza automaticamente
+        conforme a largura da tela muda, sem a necessidade de duplicar
+        conteúdo para cada dispositivo.
+      </p>
+      <p>
+        Neste exercício, o container principal (<code>conteudo-wrapper</code>)
+        e o rodapé (<code>footer</code>) usam <code>display: flex</code> para
+        alinhar seus filhos lado a lado no desktop e, através de media
+        queries, alteram <code>flex-direction</code> e <code>order</code>
+        para se adaptar a telas menores.
+      </p>
+
+      <!-- Diagrama esquemático do próprio layout (wireframe da versão
+           desktop), usado como ilustração técnica do exercício -->
+      <svg class="diagrama" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Wireframe do layout: header no topo, conteúdo e sidebar lado a lado, rodapé com três partes">
+        <rect x="4" y="4" width="292" height="40" rx="4" fill="#29c6de"/>
+        <text x="150" y="28" text-anchor="middle" font-size="12" fill="#0b2b30">header</text>
+
+        <rect x="4" y="52" width="212" height="120" rx="4" fill="#d6488e"/>
+        <text x="110" y="116" text-anchor="middle" font-size="12" fill="#3a0e24">conteudo</text>
+
+        <rect x="224" y="52" width="72" height="120" rx="4" fill="#d9ce72"/>
+        <text x="260" y="116" text-anchor="middle" font-size="11" fill="#3a3410">sidebar</text>
+
+        <rect x="4" y="180" width="94" height="36" rx="4" fill="#52d858"/>
+        <text x="51" y="202" text-anchor="middle" font-size="11" fill="#0c3310">parte 1</text>
+
+        <rect x="103" y="180" width="94" height="36" rx="4" fill="#52d858"/>
+        <text x="150" y="202" text-anchor="middle" font-size="11" fill="#0c3310">parte 2</text>
+
+        <rect x="202" y="180" width="94" height="36" rx="4" fill="#52d858"/>
+        <text x="249" y="202" text-anchor="middle" font-size="11" fill="#0c3310">parte 3</text>
+      </svg>
+    </section>
+
+    <aside id="sidebar" class="sidebar">
+      <h2>Categorias</h2>
+      <ul class="sidebar__lista">
+        <li><span class="badge badge--html">H</span> HTML</li>
+        <li><span class="badge badge--css">C</span> CSS</li>
+        <li><span class="badge badge--js">J</span> JavaScript</li>
+        <li><span class="badge badge--flex">F</span> Flexbox</li>
+        <li><span class="badge badge--media">M</span> Media Queries</li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <!-- Rodapé com 3 blocos: a ordem visual muda por breakpoint,
+       mas a ordem no HTML continua parte1, parte2, parte3 -->
+  <footer id="footer" class="footer">
+    <div class="parte parte1">
+      <h3>Sobre</h3>
+      <p>Exercício da Aula 07 do curso HTML, CSS e JavaScript (SENAI).</p>
+    </div>
+    <div class="parte parte2">
+      <h3>Contato</h3>
+      <p>contato@portaldoaluno.com.br</p>
+    </div>
+    <div class="parte parte3">
+      <h3>Redes sociais</h3>
+      <p>@portaldoaluno</p>
+    </div>
+  </footer>
+
+</body>
+</html>
