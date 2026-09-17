@@ -1,0 +1,131 @@
+/* O Tailwind via CDN só processa classes utilitárias usadas direto
+   no HTML (sem @apply, que exige o pipeline de build completo). Por
+   isso os poucos componentes repetidos abaixo (links de nav, botões)
+   são escritos em CSS puro, replicando o mesmo visual do resto da
+   página, e o resto do site continua 100% em classes utilitárias. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+/* NAVBAR — estado "rolado": ganha fundo sólido e sombra ao invés de
+   ficar transparente sobre o hero. Classe alternada via JS conforme
+   o scroll (ver js/script.js). */
+#navbar.is-scrolled {
+  background-color: rgba(11, 16, 32, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link.is-active {
+  color: #ffffff;
+}
+
+.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.1rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #a78bfa, #e879f9);
+}
+
+.nav-link-mobile {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.nav-link-mobile.is-active {
+  background-color: rgba(139, 92, 246, 0.18);
+  color: #ffffff;
+}
+
+/* BOTÕES */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #ffffff;
+  background-image: linear-gradient(135deg, #7c3aed, #d946ef);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(124, 58, 237, 0.45);
+  color: #ffffff;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+/* SCROLL REVEAL — elementos com [data-reveal] começam invisíveis e
+   deslocados; o IntersectionObserver em js/script.js adiciona
+   .is-visible quando entram na viewport. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar discreta, combinando com o tema escuro do site */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(124, 58, 237, 0.4);
+  border-radius: 999px;
+}
