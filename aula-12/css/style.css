@@ -314,6 +314,8 @@ kbd {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.card__result-text.mb { margin-bottom: 0.6rem; }
+
 .card__result--empty { color: var(--text-muted); font-style: italic; }
 .card__result--success { color: var(--accent); font-weight: 600; }
 .card__result--error { color: var(--danger); }
